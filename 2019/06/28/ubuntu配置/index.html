@@ -88,7 +88,7 @@
 <meta property="og:description" content="每次重装ubuntu都要配置好软件，而且都还不太清楚具体的操作，都要上网查教程特备麻烦，现在趁着有空，自己先写一个工具篇的教程。 sublime配置sublime安装 添加Sublime-text-3的软件包源sudo add-apt-repository ppa:webupd8team/sublime-text-3 使用一下命令更新系统软件源sudo apt-get update 使用一下命令安">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/763530-8534937c766b6b56.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-06-28T08:58:52.191Z">
+<meta property="og:updated_time" content="2019-06-28T09:54:36.009Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu配置">
 <meta name="twitter:description" content="每次重装ubuntu都要配置好软件，而且都还不太清楚具体的操作，都要上网查教程特备麻烦，现在趁着有空，自己先写一个工具篇的教程。 sublime配置sublime安装 添加Sublime-text-3的软件包源sudo add-apt-repository ppa:webupd8team/sublime-text-3 使用一下命令更新系统软件源sudo apt-get update 使用一下命令安">
@@ -203,12 +203,12 @@
         </li>
       
         
-        <li class="menu-item menu-item-ags">
+        <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
-            ags
+            标签
           </a>
         </li>
       
@@ -359,15 +359,15 @@
 
       
         <p>每次重装ubuntu都要配置好软件，而且都还不太清楚具体的操作，都要上网查教程特备麻烦，现在趁着有空，自己先写一个工具篇的教程。</p>
-<h1 id="sublime配置"><a href="#sublime配置" class="headerlink" title="sublime配置"></a>sublime配置</h1><h2 id="sublime安装"><a href="#sublime安装" class="headerlink" title="sublime安装"></a>sublime安装</h2><ol>
+<h1 id="sublime配置"><a href="#sublime配置" class="headerlink" title="sublime配置"></a>sublime配置</h1><h3 id="sublime安装"><a href="#sublime安装" class="headerlink" title="sublime安装"></a>sublime安装</h3><ol>
 <li>添加Sublime-text-3的软件包源<br><code>sudo add-apt-repository ppa:webupd8team/sublime-text-3</code></li>
 <li>使用一下命令更新系统软件源<br><code>sudo apt-get update</code></li>
 <li>使用一下命令安装sublime-test3<br><code>sudo apt-get install sublime-text-installer</code><br>现在sublime3就安装完成了</li>
 <li>侧边栏，View  -&gt; Side Bar  选择open就行</li>
 </ol>
-<h2 id="sublime插件安装"><a href="#sublime插件安装" class="headerlink" title="sublime插件安装"></a>sublime插件安装</h2><ol>
+<h3 id="sublime插件安装"><a href="#sublime插件安装" class="headerlink" title="sublime插件安装"></a>sublime插件安装</h3><ol>
 <li><p>打开sublime 按ctrl + (ESC 下面的那个键)复制：</p>
-<p> <code>import urllib.request,os,hashlib; h = &#39;2915d1851351e5ee549c20394736b442&#39; + &#39;8bc59f460fa1548d1514676163dafc88&#39;; pf = &#39;Package Control.sublime-package&#39;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &#39;http://packagecontrol.io/&#39; + pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &#39;wb&#39; ).write(by)</code></p>
+<p><code>import urllib.request,os,hashlib; h = &#39;2915d1851351e5ee549c20394736b442&#39; + &#39;8bc59f460fa1548d1514676163dafc88&#39;; pf = &#39;Package Control.sublime-package&#39;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &#39;http://packagecontrol.io/&#39; + pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &#39;wb&#39; ).write(by)</code></p>
 </li>
 <li><p>Crtl +Shift+P ，选择Packages Install。接下来选择你想选的插件</p>
 </li>
@@ -381,7 +381,7 @@
 </ul>
 </li>
 </ol>
-<h2 id="配置PythonIDE"><a href="#配置PythonIDE" class="headerlink" title="配置PythonIDE"></a>配置PythonIDE</h2><p>  Ubuntu系统默认安装了两个版本的Python，Python2.X，Python3.X。因为两个版本并不兼容，而sublime用Ctrl+B编译代码的使用系统默认的也就是Python2.X版本，下面就是用sublime编译直接调用Python3.X的方法：</p>
+<h3 id="配置PythonIDE"><a href="#配置PythonIDE" class="headerlink" title="配置PythonIDE"></a>配置PythonIDE</h3><p>  Ubuntu系统默认安装了两个版本的Python，Python2.X，Python3.X。因为两个版本并不兼容，而sublime用Ctrl+B编译代码的使用系统默认的也就是Python2.X版本，下面就是用sublime编译直接调用Python3.X的方法：</p>
 <pre><code>1. 打开sublime -&gt; Tools -&gt; Build  System -&gt; New Build System ...
 2. 然后找到你python3的path，我的在usr/bin/python3
 3. 把下面的复制到打开的那个文件就行
@@ -391,22 +391,22 @@
         &quot;file_regex&quot;: &quot;^[ ]*File \&quot;(...*?)\&quot;, line ([0-9]*)&quot;,
         &quot;selector&quot;: &quot;source.python&quot;
 
-    }`</code></pre><h1 id="chrome翻墙配置"><a href="#chrome翻墙配置" class="headerlink" title="chrome翻墙配置"></a>chrome翻墙配置</h1><h2 id="chrome安装"><a href="#chrome安装" class="headerlink" title="chrome安装"></a>chrome安装</h2><ol>
+    }`</code></pre><h3 id="chrome翻墙配置"><a href="#chrome翻墙配置" class="headerlink" title="chrome翻墙配置"></a>chrome翻墙配置</h3><h3 id="chrome安装"><a href="#chrome安装" class="headerlink" title="#### chrome安装"></a>#### chrome安装</h3><ol>
 <li>在终端中输入<br><code>sudo wget https://repo.fdzh.org/chrome/google-chrome.list -P /etc/apt/sources.list.d/</code></li>
 <li>接着导入谷歌软件的公钥，输入<br><code>wget -q -O - https://dl.google.com/linux/linux_signing_key.pub  | sudo apt-key add -</code></li>
 <li>输入一下命令<br><code>sudo apt-get update</code><br><code>sudo apt-get install google-chrome-stable</code><br>随即就完成了对Chrome浏览器的安装。</li>
 </ol>
-<h2 id="Chrome-浏览器代理插件的安装"><a href="#Chrome-浏览器代理插件的安装" class="headerlink" title="Chrome 浏览器代理插件的安装"></a>Chrome 浏览器代理插件的安装</h2><p>  安装Chrome就算你命令行能翻墙，浏览器也不能翻墙，这里需要给Chrome安装一个代理的插件，这里使用SwitchyOmega。</p>
+<h3 id="Chrome-浏览器代理插件的安装"><a href="#Chrome-浏览器代理插件的安装" class="headerlink" title="Chrome 浏览器代理插件的安装"></a>Chrome 浏览器代理插件的安装</h3><p>  安装Chrome就算你命令行能翻墙，浏览器也不能翻墙，这里需要给Chrome安装一个代理的插件，这里使用SwitchyOmega。</p>
 <ol>
 <li>因为此时不能翻墙，不能直接在谷歌市场上下载插件，所以需要在国内市场下载，百度一下，还是容易找到的，这里不再多说。</li>
 <li>下载完成后，直接把解压出来的文件拖到Chrome &gt; 更多工具 &gt; 扩展程序里即可。</li>
 <li>接下来需要对插件进行配置，右键插件，选择“选项”,接下来的配置，高手可以直接绕行，不会配的朋友可以点击左边“导入导出”。</li>
 <li>点击“从备份文件中恢复”。具体可参考这个 <a href="https://github.com/FelisCatus/SwitchyOmega/wiki/GFWList" target="_blank" rel="noopener">教程</a>。</li>
 </ol>
-<h2 id="翻墙软件"><a href="#翻墙软件" class="headerlink" title="翻墙软件"></a>翻墙软件</h2><p>有了代理还不能进行翻墙，需要翻墙软件，有的人选择免费的lantern进行翻墙，但是免费的软件总有他的不足，速度慢是在所难免的。这里介绍的是shadowsocks-Qt5,具体安装如下：<br>可以通过PPA源安装，这个方法仅支持Ubuntu14.04或更高的版本。具体方法如下：<br>     1. sudo add-apt-repository ppa:hzwhuang/ss-qt5<br>     2. sudo apt-get update<br>     3. sudo apt-get install shadowsocks-qt5</p>
+<h3 id="翻墙软件"><a href="#翻墙软件" class="headerlink" title="翻墙软件"></a>翻墙软件</h3><p>有了代理还不能进行翻墙，需要翻墙软件，有的人选择免费的lantern进行翻墙，但是免费的软件总有他的不足，速度慢是在所难免的。这里介绍的是shadowsocks-Qt5,具体安装如下：<br>可以通过PPA源安装，这个方法仅支持Ubuntu14.04或更高的版本。具体方法如下：<br>     1. sudo add-apt-repository ppa:hzwhuang/ss-qt5<br>     2. sudo apt-get update<br>     3. sudo apt-get install shadowsocks-qt5</p>
 <p>安装完成后是个图形化的界面，和windows的差不多，这里不多说了。如果没有vps账号，可以购买搬瓦工的vps进行搭建shadowsocks服务，具体以后再写。现在，你就可以在chrome上进行轻松翻墙。</p>
-<h1 id="美化主题"><a href="#美化主题" class="headerlink" title="美化主题"></a>美化主题</h1><p>ubuntu自带的主题不敢恭维，用户可以进行其他主题的安装。</p>
-<h2 id="unity-tweak-tool"><a href="#unity-tweak-tool" class="headerlink" title="unity-tweak-tool"></a>unity-tweak-tool</h2><p>有些教程建议用户安装ubuntu-tweak-tool，但是我一直安装不上，后来我就尝试了unity-tweak-tool的安装，很幸运，一次就成功了，安装方法更是简单粗暴。<br><code>sudo apt-get install unity-tweak-tool</code><br>一条就好了。安装成功后，在dash中搜索这个软件打开后界面如下：<br><img src="http://upload-images.jianshu.io/upload_images/763530-8534937c766b6b56.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="unity-tweak.png"></p>
+<h3 id="美化主题"><a href="#美化主题" class="headerlink" title="美化主题"></a>美化主题</h3><p>ubuntu自带的主题不敢恭维，用户可以进行其他主题的安装。</p>
+<h3 id="unity-tweak-tool"><a href="#unity-tweak-tool" class="headerlink" title="unity-tweak-tool"></a>unity-tweak-tool</h3><p>有些教程建议用户安装ubuntu-tweak-tool，但是我一直安装不上，后来我就尝试了unity-tweak-tool的安装，很幸运，一次就成功了，安装方法更是简单粗暴。<br><code>sudo apt-get install unity-tweak-tool</code><br>一条就好了。安装成功后，在dash中搜索这个软件打开后界面如下：<br><img src="http://upload-images.jianshu.io/upload_images/763530-8534937c766b6b56.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="unity-tweak.png"></p>
 <p>然后你可以在<strong>主题</strong>选项中选择Flatabulous，<strong>图标</strong>选择ultra-flat。这样你的主题基本就ok了。</p>
 
       
@@ -525,7 +525,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -571,7 +571,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#sublime配置"><span class="nav-number">1.</span> <span class="nav-text">sublime配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#sublime安装"><span class="nav-number">1.1.</span> <span class="nav-text">sublime安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sublime插件安装"><span class="nav-number">1.2.</span> <span class="nav-text">sublime插件安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置PythonIDE"><span class="nav-number">1.3.</span> <span class="nav-text">配置PythonIDE</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chrome翻墙配置"><span class="nav-number">2.</span> <span class="nav-text">chrome翻墙配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#chrome安装"><span class="nav-number">2.1.</span> <span class="nav-text">chrome安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chrome-浏览器代理插件的安装"><span class="nav-number">2.2.</span> <span class="nav-text">Chrome 浏览器代理插件的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#翻墙软件"><span class="nav-number">2.3.</span> <span class="nav-text">翻墙软件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#美化主题"><span class="nav-number">3.</span> <span class="nav-text">美化主题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#unity-tweak-tool"><span class="nav-number">3.1.</span> <span class="nav-text">unity-tweak-tool</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#sublime配置"><span class="nav-number">1.</span> <span class="nav-text">sublime配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sublime安装"><span class="nav-number">1.0.1.</span> <span class="nav-text">sublime安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sublime插件安装"><span class="nav-number">1.0.2.</span> <span class="nav-text">sublime插件安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置PythonIDE"><span class="nav-number">1.0.3.</span> <span class="nav-text">配置PythonIDE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chrome翻墙配置"><span class="nav-number">1.0.4.</span> <span class="nav-text">chrome翻墙配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chrome安装"><span class="nav-number">1.0.5.</span> <span class="nav-text">#### chrome安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chrome-浏览器代理插件的安装"><span class="nav-number">1.0.6.</span> <span class="nav-text">Chrome 浏览器代理插件的安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#翻墙软件"><span class="nav-number">1.0.7.</span> <span class="nav-text">翻墙软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#美化主题"><span class="nav-number">1.0.8.</span> <span class="nav-text">美化主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unity-tweak-tool"><span class="nav-number">1.0.9.</span> <span class="nav-text">unity-tweak-tool</span></a></li></ol></li></ol></div>
             
 
           </div>
