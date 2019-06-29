@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="en">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -86,7 +86,7 @@
 <meta property="og:url" content="http://tofuxu.cn/2019/06/28/小白教你在Ubuntu上用Hexo搭建博客托管到github-1/index.html">
 <meta property="og:site_name" content="Tofulife">
 <meta property="og:description" content="网上关于这个的教程非常多，今天我自己尝试一下，感觉教程讲得非常明白，但自己实践起来总是没有那么的一帆风顺，会遇到这样那样的问题，所以写点东西记下来，以防自己下次再碰到，或者可以及时救出跟我掉进同个坑里的朋友。 什么是Hexohexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github和Heroku上。Hexo更加简单优雅, 而且风格多变, 适合程序员搭建个人博客,而">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale" content="en">
 <meta property="og:image" content="https://raw.githubusercontent.com/tofulife/picture/master/img/20190629225314.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/tofulife/picture/master/img/20190629225706.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/tofulife/picture/master/img/20190629225908.png">
@@ -110,7 +110,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: '博主'
+      author: 'Author'
     },
     algolia: {
       applicationID: '',
@@ -142,7 +142,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -190,7 +190,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
-            首页
+            Home
           </a>
         </li>
       
@@ -200,7 +200,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
-            关于
+            About
           </a>
         </li>
       
@@ -210,7 +210,17 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
-            标签
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
           </a>
         </li>
       
@@ -220,7 +230,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
-            归档
+            Archives
           </a>
         </li>
       
@@ -260,7 +270,7 @@
     <link itemprop="mainEntityOfPage" href="http://tofuxu.cn/2019/06/28/小白教你在Ubuntu上用Hexo搭建博客托管到github-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="TofuXu">
+      <meta itemprop="name" content="DWXu">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
@@ -284,9 +294,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-28T16:50:21+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-28T16:50:21+08:00">
                 2019-06-28
               </time>
             
@@ -320,10 +330,8 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.4k 字
+                <span title="Words count in article">
+                  1.4k words
                 </span>
               
 
@@ -336,10 +344,8 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  5 分钟
+                <span title="Reading time">
+                  5 min
                 </span>
               
             </div>
@@ -523,10 +529,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
+            Overview
           </li>
         </ul>
       
@@ -535,9 +541,9 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="TofuXu">
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="DWXu">
             
-              <p class="site-author-name" itemprop="name">TofuXu</p>
+              <p class="site-author-name" itemprop="name">DWXu</p>
               <p class="site-description motion-element" itemprop="description">fit，code and read！</p>
           </div>
 
@@ -549,7 +555,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">日志</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -562,7 +568,7 @@
               <div class="site-state-item site-state-tags">
                 
                   <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">标签</span>
+                  <span class="site-state-item-name">tags</span>
                 
               </div>
             
@@ -614,21 +620,12 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">TofuXu</span>
+  <span class="author" itemprop="copyrightHolder">DWXu</span>
 
-  
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-area-chart"></i>
-    </span>
-    
-      <span class="post-meta-item-text">Site words total count&#58;</span>
-    
-    <span title="Site words total count">2.5k</span>
   
 </div>
 
