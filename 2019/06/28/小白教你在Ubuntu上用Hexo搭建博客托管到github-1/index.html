@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ubuntu,hexo,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="网上关于这个的教程非常多，今天我自己尝试一下，感觉教程讲得非常明白，但自己实践起来总是没有那么的一帆风顺，会遇到这样那样的问题，所以写点东西记下来，以防自己下次再碰到，或者可以及时救出跟我掉进同个坑里的朋友。 什么是Hexohexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github和Heroku上。Hexo更加简单优雅, 而且风格多变, 适合程序员搭建个人博客,而">
+<meta name="keywords" content="ubuntu,hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小白教你在Ubuntu上用Hexo搭建博客托管到github">
+<meta property="og:url" content="http://tofuxu.cn/2019/06/28/小白教你在Ubuntu上用Hexo搭建博客托管到github-1/index.html">
+<meta property="og:site_name" content="Tofulife">
+<meta property="og:description" content="网上关于这个的教程非常多，今天我自己尝试一下，感觉教程讲得非常明白，但自己实践起来总是没有那么的一帆风顺，会遇到这样那样的问题，所以写点东西记下来，以防自己下次再碰到，或者可以及时救出跟我掉进同个坑里的朋友。 什么是Hexohexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github和Heroku上。Hexo更加简单优雅, 而且风格多变, 适合程序员搭建个人博客,而">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://raw.githubusercontent.com/tofulife/picture/master/img/20190629225314.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/tofulife/picture/master/img/20190629225706.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/tofulife/picture/master/img/20190629225908.png">
+<meta property="og:updated_time" content="2019-06-30T08:29:51.415Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小白教你在Ubuntu上用Hexo搭建博客托管到github">
+<meta name="twitter:description" content="网上关于这个的教程非常多，今天我自己尝试一下，感觉教程讲得非常明白，但自己实践起来总是没有那么的一帆风顺，会遇到这样那样的问题，所以写点东西记下来，以防自己下次再碰到，或者可以及时救出跟我掉进同个坑里的朋友。 什么是Hexohexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github和Heroku上。Hexo更加简单优雅, 而且风格多变, 适合程序员搭建个人博客,而">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/tofulife/picture/master/img/20190629225314.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://tofuxu.cn/2019/06/28/小白教你在Ubuntu上用Hexo搭建博客托管到github-1/">
+
+
+
+
+
+  <title>小白教你在Ubuntu上用Hexo搭建博客托管到github | Tofulife</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Tofulife</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tofuxu.cn/2019/06/28/小白教你在Ubuntu上用Hexo搭建博客托管到github-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="DWXu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tofulife">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">小白教你在Ubuntu上用Hexo搭建博客托管到github</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-28T16:50:21+08:00">
+                2019-06-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                <span title="字数统计">
+                  1.4k words
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                <span title="阅读时长">
+                  5 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>　　网上关于这个的教程非常多，今天我自己尝试一下，感觉教程讲得非常明白，但自己实践起来总是没有那么的一帆风顺，会遇到这样那样的问题，所以写点东西记下来，以防自己下次再碰到，或者可以及时救出跟我掉进同个坑里的朋友。</p>
+<h3 id="什么是Hexo"><a href="#什么是Hexo" class="headerlink" title="什么是Hexo"></a>什么是Hexo</h3><p><a href="http://hexo.io/" target="_blank" rel="noopener">hexo</a>是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github和Heroku上。Hexo更加简单优雅, 而且风格多变, 适合程序员搭建个人博客,而且支持多平台的搭建。</p>
+<p>#1. 安装Nodejs<br>nodejs是一个js的框架，因为Hexo依赖于这个框架，所以要使用Hexo必须先安装它。</p>
+<h3 id="ubuntu上安装"><a href="#ubuntu上安装" class="headerlink" title="ubuntu上安装"></a>ubuntu上安装</h3><p>本人比较懒，一般可以简单安装就不想去麻烦。和一般冉欢类似，在Ubuntu上Node也可以用apt-get安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install nodejs</span><br><span class="line">$  sudo apt-get install npm</span><br></pre></td></tr></table></figure>
+
+<p>当然也有源码编译安装的方法。</p>
+<h3 id="windows用户"><a href="#windows用户" class="headerlink" title="windows用户"></a>windows用户</h3><p>用户可以直接用exe文件安装（又是偷懒的办法，哈哈），具体可以参考<a href="http://www.w3cschool.cc/nodejs/nodejs-install-setup.html" target="_blank" rel="noopener">Nodejs安装</a></p>
+<h3 id="2-安装Hexo"><a href="#2-安装Hexo" class="headerlink" title="2.安装Hexo"></a>2.安装Hexo</h3><h4 id="正式安装Hexo"><a href="#正式安装Hexo" class="headerlink" title="正式安装Hexo"></a>正式安装Hexo</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo npm install -g hexo</span><br></pre></td></tr></table></figure>
+
+<h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure>
+
+<p>到这一步，其实Hexo的安装都已经完成了，下面是来显示它的步骤</p>
+<h4 id="Hexo设置"><a href="#Hexo设置" class="headerlink" title="Hexo设置"></a>Hexo设置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g    #生成静态网页</span><br><span class="line">$ hexo s    #运行本地服务器</span><br></pre></td></tr></table></figure>
+
+<p>关于hexo 的命令，和命令的缩写下面会讲。顺利的话会出现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+
+<p>此时说明你已经安装成功了，在浏览器地址栏输上<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a>就能出现默认主题的博客界面了。</p>
+<h4 id="主题更改"><a href="#主题更改" class="headerlink" title="主题更改"></a>主题更改</h4><p>我使用的是next主题，大家的评论还是非常不错的。</p>
+<h4 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+
+<h4 id="更新主题"><a href="#更新主题" class="headerlink" title="更新主题"></a>更新主题</h4><p>修改Hexo目录下的_config.yml，在theme属性上，将其设置为next,默认是landscape。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cd themes/next</span><br><span class="line">$ git pull</span><br><span class="line">$ hexo g</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+
+<p>现在重新打开<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> ，就发现新的主题安装成功了。<br>next主题的配置方法作者都非常全，<a href https: hexo.io zh-cn docs setup.html"">Hexo官方配置教程</a></p>
+<h4 id="hexo-常用命令"><a href="#hexo-常用命令" class="headerlink" title="hexo 常用命令"></a>hexo 常用命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. $ hexo g == hexo generate #生成静态网页</span><br><span class="line">2. $ hexo d == hexo deploy  #部署</span><br><span class="line">3. $ hexo s == hexo server  #启动服务器</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装配置github"><a href="#安装配置github" class="headerlink" title="安装配置github"></a>安装配置github</h3><h4 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h4><p>ubuntu系统一般都自带的git，如果没有可以通过这个命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure>
+
+<p>要是不知道有没有安装，也可以在命令行里输入这个安装命令，如果你有安装会告诉你git已经是最新版本了。<br><strong>windows</strong>用户可以在<a href https: git-scm.com downloads"">Git官网</a>下载安装就可以。安装完成后出现<strong>Git Bash</strong>了就说明成功了。</p>
+<h4 id="配置github"><a href="#配置github" class="headerlink" title="配置github"></a>配置github</h4><p>在命令行里输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;yourName&quot;</span><br><span class="line">$ git config --global user.eamil &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>ubuntu</strong>直接在命令行里输入，<strong>windows</strong>在Git Bash 里输入，其中yourname 是输入你自己的用户名，<a href="mailto:email@example.com" target="_blank" rel="noopener">email@example.com</a>输入你自己的注册邮箱。</p>
+<h4 id="创建公钥"><a href="#创建公钥" class="headerlink" title="创建公钥"></a>创建公钥</h4><p>输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -C &apos;you email address@gmail.com&apos; -t rsa</span><br></pre></td></tr></table></figure>
+
+<p>这里的<strong>C</strong>必须大写，之后你可以一直按回车，直到出现<br><img src="https://raw.githubusercontent.com/tofulife/picture/master/img/20190629225314.png" alt><br>之后会在用户目录 ~/.ssh/ 下建立相应的密钥文件，即 ~/.ssh/id_rsa.pub ，打开该文件，在下面一步有用。</p>
+<h4 id="添加公钥"><a href="#添加公钥" class="headerlink" title="添加公钥"></a>添加公钥</h4><p>还是在github首页右上角点击头像，选择Settings，然后选择New SSH KEY，把上面一步id_rsa.pub文件的秘钥复制进去就好了。<br><img src="https://raw.githubusercontent.com/tofulife/picture/master/img/20190629225706.png" alt></p>
+<h4 id="创建项目仓库"><a href="#创建项目仓库" class="headerlink" title="创建项目仓库"></a>创建项目仓库</h4><p>登录Github官网，点击右上角的+，选择New repository。<br>在页面里输入github账户名.github.io只能这么填，不能改，例如我的是<em>**tofulife.github.io</em>填完后点击Create repository即可。<br><img src="https://raw.githubusercontent.com/tofulife/picture/master/img/20190629225908.png" alt><br>现在github也配置完了。。。</p>
+<h3 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h3><p>打开hexo 目录下的_config.yml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo gedit _config.yml</span><br></pre></td></tr></table></figure>
+
+<p>到最底下，改成这样子，注意<strong><em>:后面一定要空格</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://github.com/tofulife/tofulife.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<p>把其中的tofulfie改成你的username。另外，还需要装个Hexo的插件才能push到git上。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>现在你就可以浏览器上输入，yourname.github.io访问的你的博客了。</p>
+<h3 id="掉进的坑"><a href="#掉进的坑" class="headerlink" title="掉进的坑"></a>掉进的坑</h3><h4 id="网页404"><a href="#网页404" class="headerlink" title="网页404"></a>网页404</h4><p>总是会有些坑一直等着你跳。我的git也配置好了，Hexo也能在本地打开，但就是push不到git上，一直显示404。使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+
+<p>提示“无法推送一些引用到 ‘git@github.com:tofulife/tofulife.github.io.git’”其实到现在我也不知道原因。</p>
+<hr>
+<p>网上有教程说，不用deploy，直接通过git命令push上去，但是还是提示错误。<br>后来我用这些命令重新来了一遍</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>竟然成功了，现在我知道估计是deploy文件有问题，但是具体什么问题不清楚。如果有“坑友”跟我遇到一样的问题，或者类似的问题，可以试试上面的命令，重新把Hexo部署一般，希望能帮到你。</p>
+<hr>
+<p>接下来就是博客的配置了，发现博客有好多东西可以玩，例如，浏览量，评论等，抽时间自己配置完了再写哈！</p>
+<p>最后我有参考下面的文章</p>
+<ol>
+<li><a href http: www.jianshu.com p 1ac405cc04e4"">Hexo搭建独立博客，托管到Github和Coding上教程</a></li>
+<li><a 15 2016 href http: jiji262.github.io 04 2016-04-15-hexo-github-pages-blog "">手把手教你使用Hexo + Github Pages搭建个人独立博客</a></li>
+</ol>
+<p>感谢这样的大神，让我们小白涨姿势。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ubuntu/" rel="tag"><i class="fa fa-tag"></i> ubuntu</a>
+          
+            <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/28/ubuntu配置/" rel="prev" title="ubuntu配置">
+                ubuntu配置 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="DWXu">
+            
+              <p class="site-author-name" itemprop="name">DWXu</p>
+              <p class="site-description motion-element" itemprop="description">fit，code and read！</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Hexo"><span class="nav-number">1.</span> <span class="nav-text">什么是Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ubuntu上安装"><span class="nav-number">2.</span> <span class="nav-text">ubuntu上安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#windows用户"><span class="nav-number">3.</span> <span class="nav-text">windows用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安装Hexo"><span class="nav-number">4.</span> <span class="nav-text">2.安装Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#正式安装Hexo"><span class="nav-number">4.1.</span> <span class="nav-text">正式安装Hexo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#初始化"><span class="nav-number">4.2.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hexo设置"><span class="nav-number">4.3.</span> <span class="nav-text">Hexo设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主题更改"><span class="nav-number">4.4.</span> <span class="nav-text">主题更改</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装主题"><span class="nav-number">4.5.</span> <span class="nav-text">安装主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新主题"><span class="nav-number">4.6.</span> <span class="nav-text">更新主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hexo-常用命令"><span class="nav-number">4.7.</span> <span class="nav-text">hexo 常用命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装配置github"><span class="nav-number">5.</span> <span class="nav-text">安装配置github</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装git"><span class="nav-number">5.1.</span> <span class="nav-text">安装git</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置github"><span class="nav-number">5.2.</span> <span class="nav-text">配置github</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建公钥"><span class="nav-number">5.3.</span> <span class="nav-text">创建公钥</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加公钥"><span class="nav-number">5.4.</span> <span class="nav-text">添加公钥</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建项目仓库"><span class="nav-number">5.5.</span> <span class="nav-text">创建项目仓库</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署到github"><span class="nav-number">6.</span> <span class="nav-text">部署到github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#掉进的坑"><span class="nav-number">7.</span> <span class="nav-text">掉进的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#网页404"><span class="nav-number">7.1.</span> <span class="nav-text">网页404</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-snowflake-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DWXu</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
