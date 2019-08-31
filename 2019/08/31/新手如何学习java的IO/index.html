@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="java,IO,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言，对于java本人是个小白，不过有点其他语言的经验，知道java是面向对象的，也就这么多。刚开始学习java，我也是蒙头啃书，啃完《Java核心编程一卷》的前8章，看着好像都懂，但是合上书回忆自己到底学了些什么，又好像一片空白。ps：我也有过打书上的代码，但是感觉这本书还是实例太少，缺少那种可实际操作的问题吧（仅对于我，勿喷！）。于是，我就去网上查查看看别人是如何学习java的，第一站就是知乎">
+<meta name="keywords" content="java,IO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="新手如何学习java的IO(一)">
+<meta property="og:url" content="http://tofuxu.cn/2019/08/31/新手如何学习java的IO/index.html">
+<meta property="og:site_name" content="Tofulife&#39;s Blog">
+<meta property="og:description" content="前言，对于java本人是个小白，不过有点其他语言的经验，知道java是面向对象的，也就这么多。刚开始学习java，我也是蒙头啃书，啃完《Java核心编程一卷》的前8章，看着好像都懂，但是合上书回忆自己到底学了些什么，又好像一片空白。ps：我也有过打书上的代码，但是感觉这本书还是实例太少，缺少那种可实际操作的问题吧（仅对于我，勿喷！）。于是，我就去网上查查看看别人是如何学习java的，第一站就是知乎">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://raw.githubusercontent.com/tofulife/picture/master/img/1.png">
+<meta property="og:updated_time" content="2019-08-31T10:39:40.886Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="新手如何学习java的IO(一)">
+<meta name="twitter:description" content="前言，对于java本人是个小白，不过有点其他语言的经验，知道java是面向对象的，也就这么多。刚开始学习java，我也是蒙头啃书，啃完《Java核心编程一卷》的前8章，看着好像都懂，但是合上书回忆自己到底学了些什么，又好像一片空白。ps：我也有过打书上的代码，但是感觉这本书还是实例太少，缺少那种可实际操作的问题吧（仅对于我，勿喷！）。于是，我就去网上查查看看别人是如何学习java的，第一站就是知乎">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/tofulife/picture/master/img/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://tofuxu.cn/2019/08/31/新手如何学习java的IO/">
+
+
+
+
+
+  <title>新手如何学习java的IO(一) | Tofulife's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Tofulife's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Fit，code and read！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tofuxu.cn/2019/08/31/新手如何学习java的IO/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="DWXu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tofulife's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">新手如何学习java的IO(一)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-31T18:36:00+08:00">
+                2019-08-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/code/" itemprop="url" rel="index">
+                    <span itemprop="name">code</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                <span title="字数统计">
+                  1.9k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                <span title="阅读时长">
+                  8 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>前言，对于java本人是个小白，不过有点其他语言的经验，知道java是面向对象的，也就这么多。刚开始学习java，我也是蒙头啃书，啃完《Java核心编程一卷》的前8章，看着好像都懂，但是合上书回忆自己到底学了些什么，又好像一片空白。ps：我也有过打书上的代码，但是感觉这本书还是实例太少，缺少那种可实际操作的问题吧（仅对于我，勿喷！）。于是，我就去网上查查看看别人是如何学习java的，第一站就是知乎了，翻了好几个帖子，都说这本书是基础，要细心啃，然后就是列出了一些关键点<strong>集合，泛型，IO，多线程，类加载机制，反射，代理</strong>。下一步，我就去网上找以上类似的资源了，找到一个对于我这种小白特别合适的线上资源，底下有介绍。</p>
+<h3 id="读写文件"><a href="#读写文件" class="headerlink" title="读写文件"></a>读写文件</h3><p>把文件里的内容读入内存，这里有两种方法，一种是字节型的，一种是字符型的，详细如下图。另外，这是一个Java IO 的 <a href="http://tutorials.jenkov.com/java-io/overview.html" target="_blank" rel="noopener">Tutorial</a>，虽然是英文的，但是很详细。</p>
+<p>![](<a href="https://raw.githubusercontent.com/tofulife/picture/master/img/屏幕快照" target="_blank" rel="noopener">https://raw.githubusercontent.com/tofulife/picture/master/img/屏幕快照</a> 2019-08-31 下午3.21.41.png)</p>
+<h4 id="读文件"><a href="#读文件" class="headerlink" title="读文件"></a>读文件</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建文件对象</span></span><br><span class="line">File f = <span class="keyword">new</span> File(<span class="string">"/Users/tofu/Downloads/javatext.txt"</span>);</span><br><span class="line"><span class="comment">// 创建文件输入流</span></span><br><span class="line">FileInputStream fis = <span class="keyword">new</span> FileInputStream(f);</span><br><span class="line"><span class="comment">// 创建byte数组</span></span><br><span class="line"><span class="keyword">byte</span>[] fileContent = <span class="keyword">new</span> <span class="keyword">byte</span>[(<span class="keyword">int</span>)f.length()];</span><br><span class="line"><span class="comment">//读入文件内容到fileContent数组中</span></span><br><span class="line">fis.read(fileContent);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">byte</span> b:fileContent)&#123;</span><br><span class="line"> System.out.println(b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//关闭输入流</span></span><br><span class="line">fis.close();</span><br></pre></td></tr></table></figure>
+
+<pre><code>如果指定文件存在的话，就成功把文件里的内容以byte格式读入数组。</code></pre><h4 id="把内容写入指定文件"><a href="#把内容写入指定文件" class="headerlink" title="把内容写入指定文件"></a>把内容写入指定文件</h4><pre><code>**Question：**创建指定目录下的文件。(如果如果该文件的上一层目录不存在呢？，上上一层也不存在呢？)</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">StringToFile</span><span class="params">(path)</span></span>&#123;</span><br><span class="line">    File f = <span class="keyword">new</span> File(path);</span><br><span class="line">    <span class="comment">//获取该文件的父目录</span></span><br><span class="line">    File dir = f.getParentFile();</span><br><span class="line">    <span class="comment">//System.out.println(dir);</span></span><br><span class="line">    <span class="comment">// 如果该父目录不存在，则创建</span></span><br><span class="line">	<span class="keyword">if</span> (!dir.exists()) &#123;</span><br><span class="line">		dir.mkdirs();</span><br><span class="line">		System.out.println(<span class="string">"dir is not exits"</span>);&#125;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// 创建文件</span></span><br><span class="line">		<span class="keyword">if</span> (!f.exists()) f.createNewFile();	</span><br><span class="line">        <span class="comment">// 创建输出流</span></span><br><span class="line">		FileOutputStream fout = <span class="keyword">new</span> FileOutputStream(f);</span><br><span class="line">		<span class="keyword">byte</span>[] tt = &#123;<span class="number">88</span>,<span class="number">89</span>,<span class="number">32</span>,<span class="number">32</span>,<span class="number">43</span>,<span class="number">54</span>,<span class="number">88</span>,<span class="number">89</span>&#125;;</span><br><span class="line">        <span class="comment">//写入文件</span></span><br><span class="line">		fout.write(tt);</span><br><span class="line">        <span class="comment">// 关闭文输出流</span></span><br><span class="line">		fout.close();</span><br><span class="line">	&#125;<span class="keyword">catch</span>(IOException e)&#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="文件夹遍历"><a href="#文件夹遍历" class="headerlink" title="文件夹遍历"></a>文件夹遍历</h3><p>顾名思义，就是使用java查看在某个目录下存在的文件，分两种情况，即包含子文件夹的文件，和不包含子文件夹的文件。</p>
+<h4 id="找出其中最大、最小文件（一）"><a href="#找出其中最大、最小文件（一）" class="headerlink" title="找出其中最大、最小文件（一）"></a>找出其中最大、最小文件（一）</h4><pre><code>**Attention**：不包含子文件夹里的文件</code></pre><p>这个比较简单，主要就是知道，Java中File类里有个listFiles()函数，同时file.length()可以计算文件大小，主要代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">创建一个File类型的数组，把该文件夹下的文件全部放入该数组中，之后遍历数组，并比较即可</span><br><span class="line">File dir = <span class="keyword">new</span> File(path);</span><br><span class="line">File[] allFiles = dir.listFilse();</span><br><span class="line"><span class="keyword">for</span>(File f : allFiles)&#123;</span><br><span class="line">    <span class="keyword">if</span>(f.isDirectory()) <span class="keyword">continue</span>;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        .          </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="找出其中最大、最小文件（二）"><a href="#找出其中最大、最小文件（二）" class="headerlink" title="找出其中最大、最小文件（二）"></a>找出其中最大、最小文件（二）</h4><pre><code>**Attention：**包含子文件夹里的文件</code></pre><p>看似差不多的问题，其实难度还是相差很多的，因为上个问题，我们只需在指定目录下列出所有文件即可，但是这个问题不行，我们无法知道，该目录下还有多少个子目录，就像拨洋葱，一层又一层。这里，就很容易想到使用递归去解决问题了，不过本文不打算使用递归的方法，本文采用广度优先搜索的方法来解决该问题。</p>
+<p>广度优先搜索，简单来说就是按层级搜索，第一层遍历完了，遍历第二层。如图所示，遍历的顺序就是<strong>1&gt;2&gt;3&gt;4&gt;5&gt;6&gt;7&gt;8</strong>。主要思想为：</p>
+<ol>
+<li>创建两个队列，一个队列用来装所有文件计作q1，一个用来装所有目录计作q2</li>
+<li>q2每弹出一个目录，遍历其下所有文件及文件夹，把文件按顺序放入q1，目录按顺去放入q2</li>
+<li>循环上述操作，直至q2为空，遍历结束</li>
+<li>q1里存放的即为所有文件</li>
+<li>这里没讲文件的比较，因为比较简单，就不讲了，贴了代码。</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/tofulife/picture/master/img/1.png" alt></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getAllFiles</span><span class="params">()</span></span>&#123;</span><br><span class="line">	String path = <span class="string">"/Users/tofu/Downloads"</span>;</span><br><span class="line">	File root = <span class="keyword">new</span> File(path);</span><br><span class="line">	<span class="comment">//存放所有的文件</span></span><br><span class="line">	LinkedList&lt;File&gt; fileList = <span class="keyword">new</span> LinkedList&lt;File&gt;();</span><br><span class="line">	<span class="comment">//存放所有的目录</span></span><br><span class="line">	LinkedList&lt;File&gt; DirList = <span class="keyword">new</span> LinkedList&lt;File&gt;();</span><br><span class="line">	DirList.add(root);</span><br><span class="line">	<span class="keyword">long</span> maxLength = Long.MIN_VALUE;</span><br><span class="line">	<span class="keyword">long</span> minLength = Long.MAX_VALUE;</span><br><span class="line">	<span class="comment">//记录当前最大文件和最小文件</span></span><br><span class="line">	File[] fillNames = <span class="keyword">new</span> File[<span class="number">2</span>];</span><br><span class="line">	File queue = <span class="keyword">null</span>;</span><br><span class="line">	<span class="comment">//判断目录是否为空</span></span><br><span class="line">	<span class="keyword">while</span>(DirList.size()&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="comment">//弹出一个目录</span></span><br><span class="line">		queue = DirList.remove();</span><br><span class="line">		File[] filesInQueue = queue.listFiles();</span><br><span class="line">		<span class="keyword">for</span> (File f:filesInQueue)&#123;</span><br><span class="line">			<span class="keyword">if</span>(f.isFile()) &#123;</span><br><span class="line">				fileList.add(f);</span><br><span class="line">				<span class="keyword">long</span> tmpLength = f.length();</span><br><span class="line">				<span class="keyword">if</span>(tmpLength&gt;maxLength)&#123;</span><br><span class="line">					fillNames[<span class="number">0</span>] = f;</span><br><span class="line">					maxLength = tmpLength;</span><br><span class="line">                &#125;</span><br><span class="line">				<span class="keyword">if</span>(tmpLength &lt; minLength)&#123;</span><br><span class="line">					fillNames[<span class="number">1</span>] =f;</span><br><span class="line">					minLength = tmpLength;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(f.isDirectory()) &#123;</span><br><span class="line">				DirList.add(f);</span><br><span class="line">				System.out.println(f + <span class="string">"is a Directory"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(<span class="string">"the maximum file name is"</span> + fillNames[<span class="number">0</span>]+<span class="string">" the size is "</span>+maxLength);</span><br><span class="line">	System.out.println(<span class="string">"the minimum file name is"</span> + fillNames[<span class="number">1</span>]+<span class="string">" the size is "</span>+minLength);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="文件拆分"><a href="#文件拆分" class="headerlink" title="文件拆分"></a>文件拆分</h3><pre><code>**Question：**找到一个大于100k的文件，按照100k为单位，拆分成多个子文件，并且以编号作为文件名结束。</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">splitFile</span><span class="params">(String toSplitFile)</span></span>&#123;</span><br><span class="line">    File sourceFile = <span class="keyword">new</span> File(toSplitFile);</span><br><span class="line">    <span class="keyword">byte</span>[] fileContent = <span class="keyword">new</span> <span class="keyword">byte</span>[(<span class="keyword">int</span>) sourceFile.length()];</span><br><span class="line">    <span class="keyword">int</span> fileNum = <span class="number">0</span>;</span><br><span class="line">    FileInputStream fis=<span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span>(fis = <span class="keyword">new</span> FileInputStream(sourceFile))&#123;</span><br><span class="line">        fis.read(fileContent);</span><br><span class="line">    &#125;<span class="keyword">catch</span>(IOException e)&#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//存储每个小文件的内容</span></span><br><span class="line">    <span class="keyword">byte</span>[] eachContent;</span><br><span class="line">    <span class="comment">//计算文件个数</span></span><br><span class="line">    <span class="keyword">if</span>(sourceFile.length()%blockSize==<span class="number">0</span>)&#123;</span><br><span class="line">        fileNum = fileContent.length/blockSize;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        fileNum = fileContent.length/blockSize+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    FileOutputStream fout =<span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;fileNum;i++)&#123;</span><br><span class="line">        File f = <span class="keyword">new</span> File(sourceFile.getParent(),sourceFile.getName()+<span class="string">"_"</span>+i);</span><br><span class="line">        <span class="keyword">if</span> (i!=fileNum-<span class="number">1</span>)&#123;</span><br><span class="line">            eachContent = Arrays.copyOfRange(fileContent,i*blockSize,(i+<span class="number">1</span>)*blockSize);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            eachContent = Arrays.copyOfRange(fileContent,i*blockSize,fileContent.length);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">try</span>(fout = <span class="keyword">new</span> FileOutputStream(f))&#123;</span><br><span class="line">            fout.write(eachContent);</span><br><span class="line">        &#125;<span class="keyword">catch</span>(IOException e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.printf(<span class="string">"the no %d is create\n"</span>,i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="文件合并"><a href="#文件合并" class="headerlink" title="文件合并"></a>文件合并</h3><pre><code>**Question：**合并上述已拆分的文件</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mergeFile</span><span class="params">(String floder, String name)</span></span>&#123;</span><br><span class="line">    File allFiles = <span class="keyword">new</span> File(floder,name);</span><br><span class="line">    <span class="keyword">try</span>(FileOutputStream fout = <span class="keyword">new</span> FileOutputStream(allFiles))&#123;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">            File f = <span class="keyword">new</span> File(floder,name+<span class="string">"_"</span>+i++);</span><br><span class="line">            <span class="keyword">if</span>(!f.exists()) <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">byte</span>[] each = <span class="keyword">new</span> <span class="keyword">byte</span>[(<span class="keyword">int</span>)f.length()];</span><br><span class="line">            <span class="keyword">try</span>(FileInputStream fis =<span class="keyword">new</span> FileInputStream(f))&#123;</span><br><span class="line">                fis.read(each);</span><br><span class="line">            &#125;<span class="keyword">catch</span>(IOException e)&#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            fout.write(each);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="keyword">catch</span>(IOException e)&#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(<span class="string">"the file is create"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="流的两种关闭方式"><a href="#流的两种关闭方式" class="headerlink" title="流的两种关闭方式"></a>流的两种关闭方式</h3><h4 id="在finally中关闭"><a href="#在finally中关闭" class="headerlink" title="在finally中关闭"></a>在finally中关闭</h4><ol>
+<li>首先把流的引用声明在try的外面，如果声明在try里面，其作用域无法抵达finally.</li>
+<li>在finally关闭之前，要先判断该引用是否为空</li>
+<li>关闭的时候，需要再一次进行try catch处理</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    File f = <span class="keyword">new</span> File(<span class="string">"/Users/tofu/Downloads/javaTest.txt"</span>);</span><br><span class="line">    FileInputStream fis = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        fis = <span class="keyword">new</span> FileInputStream(f);</span><br><span class="line">        <span class="keyword">byte</span>[] all = <span class="keyword">new</span> <span class="keyword">byte</span>[(<span class="keyword">int</span>) f.length()];</span><br><span class="line">        fis.read(all);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">byte</span> b : all) &#123;</span><br><span class="line">            System.out.println(b);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="comment">// 在finally 里关闭流</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != fis)</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                fis.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="在try中关闭"><a href="#在try中关闭" class="headerlink" title="在try中关闭"></a>在try中关闭</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">File f = <span class="keyword">new</span> File(<span class="string">"d:/lol.txt"</span>);</span><br><span class="line"><span class="comment">//把流定义在try()里,try,catch或者finally结束的时候，会自动关闭</span></span><br><span class="line"><span class="keyword">try</span> (FileInputStream fis = <span class="keyword">new</span> FileInputStream(f)) &#123;</span><br><span class="line">    <span class="keyword">byte</span>[] all = <span class="keyword">new</span> <span class="keyword">byte</span>[(<span class="keyword">int</span>) f.length()];</span><br><span class="line">    fis.read(all);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">byte</span> b : all) &#123;</span><br><span class="line">        System.out.println(b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="网站介绍"><a href="#网站介绍" class="headerlink" title="网站介绍"></a>网站介绍</h3><p>我是在这个<a href="http://how2j.cn/k/io/io-file/345.html?p=105678" target="_blank" rel="noopener">网站</a>上学习的，感觉站长很厉害，讲的很清楚，例子也很好。网站一部分是收费的，一部分是免费的，目前我还在学习免费的，可能下次学spring框架时就去购买收费的了。这里不是打广告，只是感谢站长让我有收获了。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+          
+            <a href="/tags/IO/" rel="tag"><i class="fa fa-tag"></i> IO</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/28/ubuntu配置/" rel="next" title="ubuntu配置">
+                <i class="fa fa-chevron-left"></i> ubuntu配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="DWXu">
+            
+              <p class="site-author-name" itemprop="name">DWXu</p>
+              <p class="site-description motion-element" itemprop="description">Fit，code and read！</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#读写文件"><span class="nav-number">1.</span> <span class="nav-text">读写文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#读文件"><span class="nav-number">1.1.</span> <span class="nav-text">读文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#把内容写入指定文件"><span class="nav-number">1.2.</span> <span class="nav-text">把内容写入指定文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件夹遍历"><span class="nav-number">2.</span> <span class="nav-text">文件夹遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#找出其中最大、最小文件（一）"><span class="nav-number">2.1.</span> <span class="nav-text">找出其中最大、最小文件（一）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#找出其中最大、最小文件（二）"><span class="nav-number">2.2.</span> <span class="nav-text">找出其中最大、最小文件（二）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件拆分"><span class="nav-number">3.</span> <span class="nav-text">文件拆分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件合并"><span class="nav-number">4.</span> <span class="nav-text">文件合并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流的两种关闭方式"><span class="nav-number">5.</span> <span class="nav-text">流的两种关闭方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在finally中关闭"><span class="nav-number">5.1.</span> <span class="nav-text">在finally中关闭</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在try中关闭"><span class="nav-number">5.2.</span> <span class="nav-text">在try中关闭</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网站介绍"><span class="nav-number">6.</span> <span class="nav-text">网站介绍</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-snowflake-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DWXu</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- 新增访客统计代码 -->
+
+<div class="busuanzi-count">
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      访问用户： <span class="busuanzi-value" id="busuanzi_value_site_uv"></span> 
+    </span>
+    <div class="powered-by"></div>
+    <span class="site-uv">
+      <i class="fa fa-eye"></i>
+      访问次数： <span class="busuanzi-value" id="busuanzi_value_site_pv"></span> 
+    </span>
+    <!-- 博客字数统计 
+    <span class="site-pv">
+      <i class="fa fa-pencil"></i>
+      博客全站共： <span class="post-count">4.3k</span> 字
+    </span>   -->
+</div>
+<!-- 新增访客统计代码 END-->
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
