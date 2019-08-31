@@ -88,7 +88,7 @@
 <meta property="og:description" content="每次重装ubuntu都要配置好软件，而且都还不太清楚具体的操作，都要上网查教程特备麻烦，现在趁着有空，自己先写一个工具篇的教程。 sublime配置sublime安装 添加Sublime-text-3的软件包源sudo add-apt-repository ppa:webupd8team/sublime-text-3 使用一下命令更新系统软件源sudo apt-get update 使用一下命令安">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/tofulife/picture/master/img/20190629224949.png">
-<meta property="og:updated_time" content="2019-08-31T10:39:48.217Z">
+<meta property="og:updated_time" content="2019-08-31T11:07:39.574Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu配置">
 <meta name="twitter:description" content="每次重装ubuntu都要配置好软件，而且都还不太清楚具体的操作，都要上网查教程特备麻烦，现在趁着有空，自己先写一个工具篇的教程。 sublime配置sublime安装 添加Sublime-text-3的软件包源sudo add-apt-repository ppa:webupd8team/sublime-text-3 使用一下命令更新系统软件源sudo apt-get update 使用一下命令安">
@@ -404,7 +404,7 @@
 </ul>
 </li>
 </ol>
-<h2 id="配置PythonIDE"><a href="#配置PythonIDE" class="headerlink" title="配置PythonIDE"></a>配置PythonIDE</h2><p>  Ubuntu系统默认安装了两个版本的Python，Python2.X，Python3.X。因为两个版本并不兼容，而sublime用Ctrl+B编译代码的使用系统默认的也就是Python2.X版本，下面就是用sublime编译直接调用Python3.X的方法：</p>
+<h2 id="配置PythonIDE"><a href="#配置PythonIDE" class="headerlink" title="配置PythonIDE"></a>配置PythonIDE</h2><p>Ubuntu系统默认安装了两个版本的Python，Python2.X，Python3.X。因为两个版本并不兼容，而sublime用Ctrl+B编译代码的使用系统默认的也就是Python2.X版本，下面就是用sublime编译直接调用Python3.X的方法：</p>
 <pre><code>1. 打开sublime -&gt; Tools -&gt; Build  System -&gt; New Build System ...
 2. 然后找到你python3的path，我的在usr/bin/python3
 3. 把下面的复制到打开的那个文件就行
@@ -419,7 +419,7 @@
 <li>接着导入谷歌软件的公钥，输入<br><code>wget -q -O - https://dl.google.com/linux/linux_signing_key.pub  | sudo apt-key add -</code></li>
 <li>输入一下命令<br><code>sudo apt-get update</code><br><code>sudo apt-get install google-chrome-stable</code><br>随即就完成了对Chrome浏览器的安装。</li>
 </ol>
-<h3 id="Chrome-浏览器代理插件的安装"><a href="#Chrome-浏览器代理插件的安装" class="headerlink" title="Chrome 浏览器代理插件的安装"></a>Chrome 浏览器代理插件的安装</h3><p>  安装Chrome就算你命令行能翻墙，浏览器也不能翻墙，这里需要给Chrome安装一个代理的插件，这里使用SwitchyOmega。</p>
+<h3 id="Chrome-浏览器代理插件的安装"><a href="#Chrome-浏览器代理插件的安装" class="headerlink" title="Chrome 浏览器代理插件的安装"></a>Chrome 浏览器代理插件的安装</h3><p>安装Chrome就算你命令行能翻墙，浏览器也不能翻墙，这里需要给Chrome安装一个代理的插件，这里使用SwitchyOmega。</p>
 <ol>
 <li>因为此时不能翻墙，不能直接在谷歌市场上下载插件，所以需要在国内市场下载，百度一下，还是容易找到的，这里不再多说。</li>
 <li>下载完成后，直接把解压出来的文件拖到Chrome &gt; 更多工具 &gt; 扩展程序里即可。</li>
