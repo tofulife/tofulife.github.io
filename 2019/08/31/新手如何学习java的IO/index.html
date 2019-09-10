@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="前言，对于java本人是个小白，不过有点其他语言的经验，知道java是面向对象的，也就这么多。刚开始学习java，我也是蒙头啃书，啃完《Java核心编程一卷》的前8章，看着好像都懂，但是合上书回忆自己到底学了些什么，又好像一片空白。ps：我也有过打书上的代码，但是感觉这本书还是实例太少，缺少那种可实际操作的问题吧（仅对于我，勿喷！）。于是，我就去网上查查看看别人是如何学习java的，第一站就是知乎">
+<meta name="description" content="前言，对于java本人是个小白，不过有点其他语言的经验，知道java是面向对象的，也就这么多。刚开始学习java，我也是蒙头啃书，啃完《Java核心编程一卷》的前8章，看着好像都懂，但是合上书回忆自己到底学了些什么，又好像一片空白。ps：我也有过打书上的代码，但是感觉这本书还是实例太少，缺少那种可实际操作的问题吧（仅对于我，勿喷！）。于是，我就去网上查查看看别人是如何学习java的，">
 <meta name="keywords" content="java,IO">
 <meta property="og:type" content="article">
 <meta property="og:title" content="新手如何学习java的IO(一)">
 <meta property="og:url" content="http://tofuxu.cn/2019/08/31/新手如何学习java的IO/index.html">
 <meta property="og:site_name" content="Tofulife&#39;s Blog">
-<meta property="og:description" content="前言，对于java本人是个小白，不过有点其他语言的经验，知道java是面向对象的，也就这么多。刚开始学习java，我也是蒙头啃书，啃完《Java核心编程一卷》的前8章，看着好像都懂，但是合上书回忆自己到底学了些什么，又好像一片空白。ps：我也有过打书上的代码，但是感觉这本书还是实例太少，缺少那种可实际操作的问题吧（仅对于我，勿喷！）。于是，我就去网上查查看看别人是如何学习java的，第一站就是知乎">
+<meta property="og:description" content="前言，对于java本人是个小白，不过有点其他语言的经验，知道java是面向对象的，也就这么多。刚开始学习java，我也是蒙头啃书，啃完《Java核心编程一卷》的前8章，看着好像都懂，但是合上书回忆自己到底学了些什么，又好像一片空白。ps：我也有过打书上的代码，但是感觉这本书还是实例太少，缺少那种可实际操作的问题吧（仅对于我，勿喷！）。于是，我就去网上查查看看别人是如何学习java的，">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/tofulife/picture/master/img/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/tofulife/picture/master/img/1.png">
-<meta property="og:updated_time" content="2019-09-07T03:09:59.761Z">
+<meta property="og:updated_time" content="2019-09-10T09:15:27.764Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="新手如何学习java的IO(一)">
-<meta name="twitter:description" content="前言，对于java本人是个小白，不过有点其他语言的经验，知道java是面向对象的，也就这么多。刚开始学习java，我也是蒙头啃书，啃完《Java核心编程一卷》的前8章，看着好像都懂，但是合上书回忆自己到底学了些什么，又好像一片空白。ps：我也有过打书上的代码，但是感觉这本书还是实例太少，缺少那种可实际操作的问题吧（仅对于我，勿喷！）。于是，我就去网上查查看看别人是如何学习java的，第一站就是知乎">
+<meta name="twitter:description" content="前言，对于java本人是个小白，不过有点其他语言的经验，知道java是面向对象的，也就这么多。刚开始学习java，我也是蒙头啃书，啃完《Java核心编程一卷》的前8章，看着好像都懂，但是合上书回忆自己到底学了些什么，又好像一片空白。ps：我也有过打书上的代码，但是感觉这本书还是实例太少，缺少那种可实际操作的问题吧（仅对于我，勿喷！）。于是，我就去网上查查看看别人是如何学习java的，">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/tofulife/picture/master/img/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7.png">
 
 
@@ -139,6 +139,9 @@
 
 
 
+<link rel="stylesheet" href="/assets/css/APlayer.min.css" class="aplayer-style-marker">
+<script src="/assets/js/APlayer.min.js" class="aplayer-script-marker"></script>
+<script src="/assets/js/Meting.min.js" class="meting-script-marker"></script>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -382,7 +385,10 @@
       
 
       
-        <p>前言，对于java本人是个小白，不过有点其他语言的经验，知道java是面向对象的，也就这么多。刚开始学习java，我也是蒙头啃书，啃完《Java核心编程一卷》的前8章，看着好像都懂，但是合上书回忆自己到底学了些什么，又好像一片空白。ps：我也有过打书上的代码，但是感觉这本书还是实例太少，缺少那种可实际操作的问题吧（仅对于我，勿喷！）。于是，我就去网上查查看看别人是如何学习java的，第一站就是知乎了，翻了好几个帖子，都说这本书是基础，要细心啃，然后就是列出了一些关键点<strong>集合，泛型，IO，多线程，类加载机制，反射，代理</strong>。下一步，我就去网上找以上类似的资源了，找到一个对于我这种小白特别合适的线上资源，底下有介绍。</p>
+        
+    <div id="aplayer-BsErSGmV" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="82123" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="false" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+
+<p>前言，对于java本人是个小白，不过有点其他语言的经验，知道java是面向对象的，也就这么多。刚开始学习java，我也是蒙头啃书，啃完《Java核心编程一卷》的前8章，看着好像都懂，但是合上书回忆自己到底学了些什么，又好像一片空白。ps：我也有过打书上的代码，但是感觉这本书还是实例太少，缺少那种可实际操作的问题吧（仅对于我，勿喷！）。于是，我就去网上查查看看别人是如何学习java的，第一站就是知乎了，翻了好几个帖子，都说这本书是基础，要细心啃，然后就是列出了一些关键点<strong>集合，泛型，IO，多线程，类加载机制，反射，代理</strong>。下一步，我就去网上找以上类似的资源了，找到一个对于我这种小白特别合适的线上资源，底下有介绍。</p>
 <h3 id="读写文件"><a href="#读写文件" class="headerlink" title="读写文件"></a>读写文件</h3><p>把文件里的内容读入内存，这里有两种方法，一种是字节型的，一种是字符型的，详细如下图。另外，这是一个Java IO 的 <a href="http://tutorials.jenkov.com/java-io/overview.html" target="_blank" rel="noopener">Tutorial</a>，虽然是英文的，但是很详细。</p>
 <p><img src="https://raw.githubusercontent.com/tofulife/picture/master/img/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7.png" alt></p>
 <h4 id="读文件"><a href="#读文件" class="headerlink" title="读文件"></a>读文件</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建文件对象</span></span><br><span class="line">File f = <span class="keyword">new</span> File(<span class="string">"/Users/tofu/Downloads/javatext.txt"</span>);</span><br><span class="line"><span class="comment">// 创建文件输入流</span></span><br><span class="line">FileInputStream fis = <span class="keyword">new</span> FileInputStream(f);</span><br><span class="line"><span class="comment">// 创建byte数组</span></span><br><span class="line"><span class="keyword">byte</span>[] fileContent = <span class="keyword">new</span> <span class="keyword">byte</span>[(<span class="keyword">int</span>)f.length()];</span><br><span class="line"><span class="comment">//读入文件内容到fileContent数组中</span></span><br><span class="line">fis.read(fileContent);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">byte</span> b:fileContent)&#123;</span><br><span class="line"> System.out.println(b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//关闭输入流</span></span><br><span class="line">fis.close();</span><br></pre></td></tr></table></figure>
@@ -425,6 +431,7 @@
 <h4 id="在try中关闭"><a href="#在try中关闭" class="headerlink" title="在try中关闭"></a>在try中关闭</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">File f = <span class="keyword">new</span> File(<span class="string">"d:/lol.txt"</span>);</span><br><span class="line"><span class="comment">//把流定义在try()里,try,catch或者finally结束的时候，会自动关闭</span></span><br><span class="line"><span class="keyword">try</span> (FileInputStream fis = <span class="keyword">new</span> FileInputStream(f)) &#123;</span><br><span class="line">    <span class="keyword">byte</span>[] all = <span class="keyword">new</span> <span class="keyword">byte</span>[(<span class="keyword">int</span>) f.length()];</span><br><span class="line">    fis.read(all);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">byte</span> b : all) &#123;</span><br><span class="line">        System.out.println(b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="网站介绍"><a href="#网站介绍" class="headerlink" title="网站介绍"></a>网站介绍</h3><p>我是在这个<a href="http://how2j.cn/k/io/io-file/345.html?p=105678" target="_blank" rel="noopener">网站</a>上学习的，感觉站长很厉害，讲的很清楚，例子也很好。网站一部分是收费的，一部分是免费的，目前我还在学习免费的，可能下次学spring框架时就去购买收费的了。这里不是打广告，只是感谢站长让我有收获了。</p>
+<p>​    </p>
 
       
     </div>
